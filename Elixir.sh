@@ -93,4 +93,4 @@ function main {
 
 main
 
-docker logs -f elixir
+docker logs -f ev
