@@ -92,5 +92,3 @@ function main {
 }
 
 main
-
-docker logs -f elixir
