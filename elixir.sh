@@ -83,7 +83,7 @@ function delete_old {
 
 function build_and_start {
     docker pull elixirprotocol/validator:v3
-    docker run -it --env-file ./validator.env --name elixir-node --restart unless-stopped -p 17690:17690 elixirprotocol/validator:v3
+    docker run -it --env-file ./Dockerfile --name elixir-node --restart unless-stopped -p 17690:17690 elixirprotocol/validator:v3
 }
 
 function main {
