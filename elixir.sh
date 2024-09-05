@@ -68,8 +68,6 @@ function prepare_docker_image {
 
     cat > $HOME/elixir/Dockerfile <<EOF
     ENV=testnet-3
-
-    
     STRATEGY_EXECUTOR_IP_ADDRESS=$address
     STRATEGY_EXECUTOR_BENEFICIARY=$wallet
     SIGNER_PRIVATE_KEY=$private_key
@@ -85,10 +83,7 @@ function delete_old {
 
 function build_and_start {
     docker pull elixirprotocol/validator:v3
-    
-    docker build . -f Dockerfile -t elixir-validator
-
-    docker run -d --restart unless-stopped --name ev elixir-validator
+    docker run -it --env-file ./validator.env --name elixir-node --restart unless-stopped -p 17690:17690 elixirprotocol/validator:v3
 }
 
 function main {
